@@ -49,23 +49,22 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label14 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.label15 = new System.Windows.Forms.Label();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label16 = new System.Windows.Forms.Label();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -264,7 +263,6 @@
             this.groupBox2.Controls.Add(this.label14);
             this.groupBox2.Controls.Add(this.label13);
             this.groupBox2.Controls.Add(this.comboBox2);
-            this.groupBox2.Controls.Add(this.label12);
             this.groupBox2.Controls.Add(this.label11);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(6, 6);
@@ -278,6 +276,7 @@
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column6,
             this.Column1,
             this.Column2,
             this.Column3,
@@ -287,26 +286,6 @@
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(1025, 231);
             this.dataGridView1.TabIndex = 16;
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Product Name";
-            this.Column1.Name = "Column1";
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Quantity";
-            this.Column2.Name = "Column2";
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "Date";
-            this.Column3.Name = "Column3";
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "Income";
-            this.Column4.Name = "Column4";
             // 
             // label14
             // 
@@ -335,15 +314,6 @@
             this.comboBox2.Size = new System.Drawing.Size(121, 28);
             this.comboBox2.TabIndex = 15;
             // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(196, 44);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(104, 20);
-            this.label12.TabIndex = 10;
-            this.label12.Text = "Total Bonus:";
-            // 
             // label11
             // 
             this.label11.AutoSize = true;
@@ -366,7 +336,6 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.label15);
             this.groupBox3.Controls.Add(this.dataGridView2);
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox3.Location = new System.Drawing.Point(6, 6);
@@ -375,15 +344,6 @@
             this.groupBox3.TabIndex = 15;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Product Statics";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(6, 34);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(110, 20);
-            this.label15.TabIndex = 17;
-            this.label15.Text = "List by month";
             // 
             // dataGridView2
             // 
@@ -423,6 +383,31 @@
             this.label16.TabIndex = 25;
             this.label16.Text = "Report";
             // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "Name";
+            this.Column6.Name = "Column6";
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Product Name";
+            this.Column1.Name = "Column1";
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Quantity";
+            this.Column2.Name = "Column2";
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Date";
+            this.Column3.Name = "Column3";
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "Income";
+            this.Column4.Name = "Column4";
+            // 
             // ReportManagementForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -443,7 +428,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.tabPage3.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -470,14 +454,9 @@
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.GroupBox groupBox3;
@@ -485,8 +464,12 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
 
 
     }

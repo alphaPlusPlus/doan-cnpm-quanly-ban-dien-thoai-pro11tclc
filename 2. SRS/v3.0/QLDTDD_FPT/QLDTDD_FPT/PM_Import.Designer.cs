@@ -48,12 +48,10 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.comboBox5 = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -225,13 +223,6 @@
             this.label3.TabIndex = 8;
             this.label3.Text = "Manufacturer";
             // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(186, 141);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(395, 30);
-            this.textBox3.TabIndex = 4;
-            // 
             // textBox2
             // 
             this.textBox2.Location = new System.Drawing.Point(186, 69);
@@ -248,24 +239,9 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "Product Name";
             // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(186, 33);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(395, 30);
-            this.textBox1.TabIndex = 1;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 36);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(132, 25);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Product Code";
-            // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.comboBox5);
             this.groupBox1.Controls.Add(this.comboBox4);
             this.groupBox1.Controls.Add(this.label11);
             this.groupBox1.Controls.Add(this.button3);
@@ -286,11 +262,8 @@
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.textBox3);
             this.groupBox1.Controls.Add(this.textBox2);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.textBox1);
-            this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
@@ -298,6 +271,14 @@
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Import Products";
+            // 
+            // comboBox5
+            // 
+            this.comboBox5.FormattingEnabled = true;
+            this.comboBox5.Location = new System.Drawing.Point(186, 140);
+            this.comboBox5.Name = "comboBox5";
+            this.comboBox5.Size = new System.Drawing.Size(395, 33);
+            this.comboBox5.TabIndex = 31;
             // 
             // PM_Import
             // 
@@ -335,11 +316,9 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.ComboBox comboBox5;
     }
 }
