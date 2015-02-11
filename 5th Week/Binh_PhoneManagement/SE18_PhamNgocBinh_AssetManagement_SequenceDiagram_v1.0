@@ -3121,13 +3121,13 @@
 											"parentStyle": false,
 											"containerChangeable": false,
 											"containerExtending": true,
-											"left": 449,
+											"left": 492,
 											"top": 239,
 											"width": 107,
 											"height": 13,
 											"autoResize": false,
-											"alpha": 1.5707963267948966,
-											"distance": 10,
+											"alpha": 1.5400653289696196,
+											"distance": 52.009614495783374,
 											"hostEdge": {
 												"$ref": "AAAAAAFLeNdI0IygdkQ="
 											},
@@ -5210,7 +5210,7 @@
 											"left": 130,
 											"top": 132,
 											"width": 1,
-											"height": 197,
+											"height": 177,
 											"autoResize": false
 										}
 									],
@@ -5226,7 +5226,7 @@
 									"left": 92,
 									"top": 92,
 									"width": 76,
-									"height": 237,
+									"height": 217,
 									"autoResize": false,
 									"stereotypeDisplay": "label",
 									"showVisibility": true,
