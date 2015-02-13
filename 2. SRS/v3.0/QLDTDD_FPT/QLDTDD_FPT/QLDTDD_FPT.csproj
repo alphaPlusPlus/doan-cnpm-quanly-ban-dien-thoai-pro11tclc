@@ -75,6 +75,12 @@
     <Compile Include="AssetManagementForm.Designer.cs">
       <DependentUpon>AssetManagementForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
     <Compile Include="PM_Edit.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -105,11 +111,11 @@
     <Compile Include="PM_Order.Designer.cs">
       <DependentUpon>PM_Order.cs</DependentUpon>
     </Compile>
-    <Compile Include="ProductManangementForm.cs">
+    <Compile Include="PhoneManangementForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ProductManangementForm.Designer.cs">
-      <DependentUpon>ProductManangementForm.cs</DependentUpon>
+    <Compile Include="PhoneManangementForm.Designer.cs">
+      <DependentUpon>PhoneManangementForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -158,6 +164,9 @@
     <EmbeddedResource Include="AssetManagementForm.resx">
       <DependentUpon>AssetManagementForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PM_Edit.resx">
       <DependentUpon>PM_Edit.cs</DependentUpon>
     </EmbeddedResource>
@@ -173,8 +182,8 @@
     <EmbeddedResource Include="PM_Order.resx">
       <DependentUpon>PM_Order.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ProductManangementForm.resx">
-      <DependentUpon>ProductManangementForm.cs</DependentUpon>
+    <EmbeddedResource Include="PhoneManangementForm.resx">
+      <DependentUpon>PhoneManangementForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

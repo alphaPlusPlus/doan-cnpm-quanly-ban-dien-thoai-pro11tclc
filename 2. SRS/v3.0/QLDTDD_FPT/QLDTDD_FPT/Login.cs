@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace QLDTDD_FPT
 {
-    public partial class SM_Add : Form
+    public partial class Login : Form
     {
-        public SM_Add()
+        public Login()
         {
             InitializeComponent();
-        }
-
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
         }
     }
 }

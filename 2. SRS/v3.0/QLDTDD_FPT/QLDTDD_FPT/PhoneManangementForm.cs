@@ -10,40 +10,34 @@ using System.Windows.Forms;
 
 namespace QLDTDD_FPT
 {
-    public partial class Mainform : Form
+    public partial class PhoneManangementForm : Form
     {
-        public Mainform()
+        public PhoneManangementForm()
         {
             InitializeComponent();
+            comboBox1.Items.Add("-Filter-");
         }
-
         private void button1_Click(object sender, EventArgs e)
         {
-            PhoneManangementForm myform = new PhoneManangementForm();
+            PM_Import myform = new PM_Import();
             myform.Show();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            AssetManagementForm myform = new AssetManagementForm();
+            PM_Export myform = new PM_Export();
             myform.Show();
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void button5_Click(object sender, EventArgs e)
         {
-            StaffManagementForm myform = new StaffManagementForm();
+            PM_Edit myform = new PM_Edit();
             myform.Show();
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            ReportManagementForm myform = new ReportManagementForm();
-            myform.Show();
-        }
-
-        private void loginToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Login myform = new Login();
+            PM_Order myform = new PM_Order();
             myform.Show();
         }
     }
