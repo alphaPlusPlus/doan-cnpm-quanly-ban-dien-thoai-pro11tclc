@@ -1,0 +1,264 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{43DE249D-FB89-4901-A9CE-85D3159FC6C7}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>QLDTDD_FPT</RootNamespace>
+    <AssemblyName>QLDTDD_FPT</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AM_Edit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AM_Edit.Designer.cs">
+      <DependentUpon>AM_Edit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AM_Export.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AM_Export.Designer.cs">
+      <DependentUpon>AM_Export.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AM_Import.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AM_Import.Designer.cs">
+      <DependentUpon>AM_Import.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AM_Order.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AM_Order.Designer.cs">
+      <DependentUpon>AM_Order.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AssetManagementForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AssetManagementForm.Designer.cs">
+      <DependentUpon>AssetManagementForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Database\Asset.cs" />
+    <Compile Include="Database\Color.cs" />
+    <Compile Include="Database\Distributor.cs" />
+    <Compile Include="Database\Export.cs" />
+    <Compile Include="Database\Import.cs" />
+    <Compile Include="Database\Manufacturer.cs" />
+    <Compile Include="Database\OperatingSystem.cs" />
+    <Compile Include="Database\Order.cs" />
+    <Compile Include="Database\Phone.cs" />
+    <Compile Include="Database\Product.cs" />
+    <Compile Include="Database\Staff.cs" />
+    <Compile Include="Database\SysDbContext.cs" />
+    <Compile Include="Database\TimeBook.cs" />
+    <Compile Include="Database\UnitOfWork.cs" />
+    <Compile Include="Database\GenericRepositorycs.cs" />
+    <Compile Include="HowToUseGenericRepository.cs" />
+    <Compile Include="Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PM_Edit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PM_Edit.Designer.cs">
+      <DependentUpon>PM_Edit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PM_Export.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PM_Export.Designer.cs">
+      <DependentUpon>PM_Export.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PM_Import.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PM_Import.Designer.cs">
+      <DependentUpon>PM_Import.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Mainform.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mainform.Designer.cs">
+      <DependentUpon>Mainform.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PM_Order.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PM_Order.Designer.cs">
+      <DependentUpon>PM_Order.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PhoneManangementForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PhoneManangementForm.Designer.cs">
+      <DependentUpon>PhoneManangementForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReportManagementForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportManagementForm.Designer.cs">
+      <DependentUpon>ReportManagementForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SM_Add.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SM_Add.Designer.cs">
+      <DependentUpon>SM_Add.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SM_Timebook.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SM_Timebook.Designer.cs">
+      <DependentUpon>SM_Timebook.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SM_Update.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SM_Update.Designer.cs">
+      <DependentUpon>SM_Update.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StaffManagementForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StaffManagementForm.Designer.cs">
+      <DependentUpon>StaffManagementForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="AM_Edit.resx">
+      <DependentUpon>AM_Edit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AM_Export.resx">
+      <DependentUpon>AM_Export.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AM_Import.resx">
+      <DependentUpon>AM_Import.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AM_Order.resx">
+      <DependentUpon>AM_Order.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AssetManagementForm.resx">
+      <DependentUpon>AssetManagementForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PM_Edit.resx">
+      <DependentUpon>PM_Edit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PM_Export.resx">
+      <DependentUpon>PM_Export.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PM_Import.resx">
+      <DependentUpon>PM_Import.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mainform.resx">
+      <DependentUpon>Mainform.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PM_Order.resx">
+      <DependentUpon>PM_Order.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PhoneManangementForm.resx">
+      <DependentUpon>PhoneManangementForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="ReportManagementForm.resx">
+      <DependentUpon>ReportManagementForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SM_Add.resx">
+      <DependentUpon>SM_Add.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SM_Timebook.resx">
+      <DependentUpon>SM_Timebook.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SM_Update.resx">
+      <DependentUpon>SM_Update.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StaffManagementForm.resx">
+      <DependentUpon>StaffManagementForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
