@@ -21,10 +21,8 @@ namespace QLDTDD_FPT.Database
         [Required]
         public string UserRole { get; set; }
         [MaxLength(50)]
-        [Required]
         public string UserId { get; set; }
         [MaxLength(50)]
-        [Required]
         public string Pass { get; set; }
         [Column(TypeName = "DateTime2")]
         public Nullable<System.DateTime> BirthDate { get; set; }

@@ -32,6 +32,10 @@ namespace QLDTDD_FPT.Database
         private GenericRepository<Order> _orderRepo;
         private GenericRepository<Staff> _staffRepo;
         private GenericRepository<TimeBook> _timebookRepo;
+        private GenericRepository<Distributor> _distrRepo;
+        private GenericRepository<OperatingSystem> _operatingSysRepo;
+        private GenericRepository<Manufacturer> _manuRepo;
+        private GenericRepository<Color> _colorRepo;
 
         public GenericRepository<Asset> AssetRepository
         {
@@ -86,6 +90,38 @@ namespace QLDTDD_FPT.Database
             get
             {
                 return _timebookRepo ?? (_timebookRepo = new GenericRepository<TimeBook>(_context));
+            }
+        }
+
+        public GenericRepository<Distributor> DistributorRepository
+        {
+            get
+            {
+                return _distrRepo ?? (_distrRepo = new GenericRepository<Distributor>(_context));
+            }
+        }
+
+        public GenericRepository<OperatingSystem> OperatingSystemRepository
+        {
+            get
+            {
+                return _operatingSysRepo ?? (_operatingSysRepo = new GenericRepository<OperatingSystem>(_context));
+            }
+        }
+
+        public GenericRepository<Manufacturer> ManufacturerRepository
+        {
+            get
+            {
+                return _manuRepo ?? (_manuRepo = new GenericRepository<Manufacturer>(_context));
+            }
+        }
+
+        public GenericRepository<Color> ColorRepository
+        {
+            get
+            {
+                return _colorRepo ?? (_colorRepo = new GenericRepository<Color>(_context));
             }
         }
 
