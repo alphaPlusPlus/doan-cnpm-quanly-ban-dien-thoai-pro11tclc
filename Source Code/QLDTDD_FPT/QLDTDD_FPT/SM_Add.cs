@@ -1,20 +1,44 @@
-﻿using QLDTDD_FPT.Database;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
+﻿using System;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
+using System.Globalization;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using QLDTDD_FPT.Database;
 
 namespace QLDTDD_FPT
 {
     public partial class SM_Add : Form
     {
+        private readonly string[] _specialCharacters =
+        {
+            "!",
+            "@",
+            "#",
+            "$",
+            "%",
+            "^",
+            "&",
+            "*",
+            "(",
+            ")",
+            "-",
+            "=",
+            "+",
+            "`",
+            "~",
+            "/",
+            "?",
+            "\\",
+            "<",
+            ">",
+            ",",
+            "{",
+            "}",
+            "[",
+            "]",
+            "|"
+        };
+
         public SM_Add()
         {
             InitializeComponent();
@@ -28,10 +52,157 @@ namespace QLDTDD_FPT
 
         private void groupBox1_Enter(object sender, EventArgs e)
         {
-
         }
 
         private void btnClear_Click(object sender, EventArgs e)
+        {
+            Clear();
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            Dispose();
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            var test = DateTime.Today.Year;
+            var test2 = dtpBirthday.Value.Year;
+            var year = DateTime.Today.Year - dtpBirthday.Value.Year;
+            if (txtName.Text == "")
+            {
+                MessageBox.Show(@"The name is incorrect.");
+            }
+            else if (Regex.IsMatch(txtName.Text, @"^\d+$"))
+            {
+                MessageBox.Show(@"The Name is incorrect.");
+                txtName.Text = "";
+            }
+            else if (year > 100 || year < 0)
+            {
+                MessageBox.Show(
+                    @"You need to choose another year of birth to ensure that your age between 1 and 100.");
+            }
+            else if (rbFemale.Checked == false && rbMale.Checked == false)
+            {
+                MessageBox.Show(@"Gender must be chosen.");
+            }
+            else if (txtAddress.TextLength > 100)
+            {
+                MessageBox.Show(@"The Address must less than 100 characters.");
+            }
+            else if (txtPhoneNumber.TextLength > 20)
+            {
+                MessageBox.Show(@"The phone number must less than 20 characters.");
+                txtPhoneNumber.Text = "";
+            }
+            else if (txtPhoneNumber.TextLength == 0)
+            {
+                MessageBox.Show(@"The phone number must be entered.");
+            }
+            else if (txtSalary.TextLength == 0)
+            {
+                MessageBox.Show(@"The salary must be entered.");
+            }
+            
+            else
+            {
+                try
+                {
+                    UnitOfWork unitOfWork = UnitOfWork.Instance;
+                    bool gender = false;
+                    var rand = new Random();
+
+                    // initialize variables
+                    string name = txtName.Text.Trim();
+                    DateTime birthday = dtpBirthday.Value;
+                    if (rbMale.Checked)
+                    {
+                        gender = true;
+                    }
+                    if (rbFemale.Checked)
+                    {
+                        gender = false;
+                    }
+                    string address = txtAddress.Text.Trim();
+                    string phoneNumber = txtPhoneNumber.Text.Trim();
+                    string position = cboPosition.SelectedItem.ToString();
+                    int salary = Int32.Parse(txtSalary.Text.Trim());
+
+                    if (!CheckFailure(name, birthday, address, phoneNumber, position, salary))
+                    {
+                        string staffId = Guid.NewGuid().ToString();
+                        staffId = staffId.Replace("-", "");
+                        int randomNumber = rand.Next(22);
+                        staffId = staffId.Substring(randomNumber, 10);
+
+                        // add to database
+                        unitOfWork.StaffRepository.Insert(new Staff
+                        {
+                            StaffId = staffId,
+                            Name = name,
+                            BirthDate = birthday,
+                            Gender = gender,
+                            Address = address,
+                            PhoneNum = phoneNumber,
+                            UserRole = position,
+                            MonthlySalary = salary
+                        });
+                        unitOfWork.Save();
+                        MessageBox.Show(@"A staff's member have been added.");
+                        Clear();
+                    }
+                }
+                catch (SqlException)
+                {
+                    MessageBox.Show(@"Database connection error.");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.StackTrace);
+                }
+            }
+        }
+
+        public bool CheckFailure(string name, DateTime birthday, string address, string phoneNumber, string position,
+            int salary)
+        {
+            try
+            {
+                // check name
+                if (name.Length > 0)
+                {
+                    if (Regex.IsMatch(name, @"^[a-zA-Z0-9_\s]$"))
+                    {
+                        MessageBox.Show(@"The Name is incorrect.");
+                        txtName.Text = "";
+                        return true;
+                    }
+                    if (name.Length > 50)
+                    {
+                        MessageBox.Show(@"The Name must less than 50 characters.");
+                        txtName.Text = "";
+                        return true;
+                    }
+                }
+                else
+                {
+                    MessageBox.Show(@"The name must be entered.");
+                    txtName.Text = "";
+                    return true;
+                }
+
+                // check salary
+                
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.StackTrace);
+            }
+            return false;
+        }
+
+        public void Clear()
         {
             txtName.Text = "";
             dtpBirthday.ResetText();
@@ -40,145 +211,40 @@ namespace QLDTDD_FPT
             txtSalary.Text = "";
         }
 
-        private void btnCancel_Click(object sender, EventArgs e)
+        private void txtName_KeyPress(object sender, KeyPressEventArgs e)
         {
-            this.Dispose();
-        }
-
-        private void btnAdd_Click(object sender, EventArgs e)
-        {
-            try
+            if (e.KeyChar.ToString(CultureInfo.InvariantCulture) == " ")
             {
-                var unitOfWork = UnitOfWork.Instance;
-                string staffId;
-                string name;
-                DateTime birthday;
-                bool gender = false;
-                string address;
-                string phoneNumber;
-                string position="";
-                int salary;
-                Random rand = new Random();
-                int randomNumber = 0;
-
-                // initialize variables
-                name = txtName.Text.Trim();
-                birthday = dtpBirthday.Value;
-                if (rbMale.Checked)
+                MessageBox.Show(@"The name is incorrect.");
+            }
+            else
+            {
+                foreach (var t in _specialCharacters)
                 {
-                    gender = true;
-                }
-                if (rbFemale.Checked)
-                {
-                    gender = false;
-                }
-                address = txtAddress.Text.Trim();
-                phoneNumber = txtPhoneNumber.Text.Trim();
-                position = cboPosition.SelectedItem.ToString();
-                salary = Int32.Parse(txtSalary.Text.Trim());
-
-                if (!checkFailure(name, birthday, address, phoneNumber, position, salary))
-                {
-                    staffId = Guid.NewGuid().ToString();
-                    staffId = staffId.Replace("-", "");
-                    randomNumber = rand.Next(22);
-                    staffId = staffId.Substring(randomNumber, 10);
-
-                    // add to database
-                    unitOfWork.StaffRepository.Insert(new Staff
+                    if (e.KeyChar.ToString(CultureInfo.InvariantCulture).Contains(t))
                     {
-                        StaffId = staffId,
-                        Name = name,
-                        BirthDate = birthday,
-                        Gender = gender,
-                        Address = address,
-                        PhoneNum = phoneNumber,
-                        UserRole = position,
-                        MonthlySalary = salary
-                    });
-                    unitOfWork.Save();
-                    MessageBox.Show("Mission Accomplished.");
-                }                
-            }
-            catch (SqlException)
-            {
-                MessageBox.Show("Database connection error.");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.StackTrace);
+                        MessageBox.Show(@"The name is incorrect.");        
+                    }
+                }
             }
         }
 
-        public bool checkFailure(string name, DateTime birthday, string address, string phoneNumber, string position, int salary)
+        private void txtPhoneNumber_KeyPress(object sender, KeyPressEventArgs e)
         {
-            try
+            // handle input field
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
             {
-                // check name
-                if (name.Length > 0)
-                {
-                    if (Regex.IsMatch(name, @"^\d+$") || Regex.IsMatch(name, @"^[a-zA-Z0-9_\s]$"))
-                    {
-                        MessageBox.Show("The Name is incorrect.");
-                        txtName.Text = "";
-                        return true;
-                    }
-                    else if (name.Length > 50)
-                    {
-                        MessageBox.Show("The Name must less than 50 characters.");
-                        txtName.Text = "";
-                        return true;
-                    }
-                }
-
-                // check date of birth
-                int year = DateTime.Today.Year - birthday.Year;
-                if (year > 100 && year < 1)
-                {
-                    MessageBox.Show("You need to choose another year of birth to ensure that your age between 1 and 100.");
-                    return true;
-                }
-
-                // check address
-                if (address.Length > 100)
-                {
-                    MessageBox.Show("The Address must less than 100 characters.");
-                    return true;
-                }
-
-                // check the phone number
-                if (phoneNumber.Length > 0)
-                {
-                    if (!Regex.IsMatch(phoneNumber, @"^\d+$"))
-                    {
-                        MessageBox.Show("The phone number is incorrect.");
-                        txtPhoneNumber.Text = "";
-                        return true;
-                    }
-                    else if (phoneNumber.Length > 20)
-                    {
-                        MessageBox.Show("The phone number must less than 20 characters.");
-                        txtPhoneNumber.Text = "";
-                        return true;
-                    }
-                }
-
-                // check salary
-                if (salary.ToString().Trim().Length > 0)
-                {
-                    if (!Regex.IsMatch(salary.ToString().Trim(), @"^\d+$"))
-                    {
-                        MessageBox.Show("The salary is incorrect.");
-                        txtSalary.Text = "";
-                        return true;
-                    }
-                }
+                e.Handled = true;
             }
-            catch (Exception ex)
+        }
+
+        private void txtSalary_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // handle input field
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
             {
-                MessageBox.Show(ex.StackTrace);
+                e.Handled = true;
             }
-            return false;
         }
     }
 }

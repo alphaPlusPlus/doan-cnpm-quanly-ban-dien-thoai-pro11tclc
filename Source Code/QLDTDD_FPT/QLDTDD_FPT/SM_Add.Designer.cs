@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtSalary = new System.Windows.Forms.TextBox();
             this.cboPosition = new System.Windows.Forms.ComboBox();
@@ -47,7 +48,6 @@
             this.btnCancel = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtName = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -81,6 +81,14 @@
             this.groupBox1.Text = "Add Staff";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
+            // txtName
+            // 
+            this.txtName.Location = new System.Drawing.Point(186, 26);
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(395, 30);
+            this.txtName.TabIndex = 40;
+            this.txtName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtName_KeyPress);
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -97,6 +105,7 @@
             this.txtSalary.Name = "txtSalary";
             this.txtSalary.Size = new System.Drawing.Size(395, 30);
             this.txtSalary.TabIndex = 38;
+            this.txtSalary.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSalary_KeyPress);
             // 
             // cboPosition
             // 
@@ -161,6 +170,7 @@
             this.txtPhoneNumber.Name = "txtPhoneNumber";
             this.txtPhoneNumber.Size = new System.Drawing.Size(395, 30);
             this.txtPhoneNumber.TabIndex = 29;
+            this.txtPhoneNumber.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPhoneNumber_KeyPress);
             // 
             // btnAdd
             // 
@@ -241,13 +251,6 @@
             this.label2.Size = new System.Drawing.Size(118, 25);
             this.label2.TabIndex = 2;
             this.label2.Text = "Date of Birth";
-            // 
-            // txtName
-            // 
-            this.txtName.Location = new System.Drawing.Point(186, 26);
-            this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(395, 30);
-            this.txtName.TabIndex = 40;
             // 
             // SM_Add
             // 
