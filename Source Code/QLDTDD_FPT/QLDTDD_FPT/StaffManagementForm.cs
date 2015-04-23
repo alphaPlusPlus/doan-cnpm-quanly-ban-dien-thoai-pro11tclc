@@ -15,6 +15,7 @@ namespace QLDTDD_FPT
             btnUpdate.Enabled = false;
             cboFilter.Items.Add("-Filter-");
             GetDataFromDb();
+            // MessageBox.Show(@"Database connection error.");
         }
 
         private void cboFilter_SelectedIndexChanged(object sender, EventArgs e)
@@ -32,8 +33,40 @@ namespace QLDTDD_FPT
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            var myform = new SM_Update();
-            myform.Show();
+            var myUpdate = new SM_Update();
+            var dataGridViewRow = dataGridView1.CurrentRow;
+            if (dataGridViewRow != null)
+            {
+                myUpdate.StaffId = dataGridViewRow.Cells[0].Value.ToString();
+                myUpdate.txtName.Text = dataGridViewRow.Cells[1].Value.ToString();
+                myUpdate.dtpBirthday.Value = (DateTime)dataGridViewRow.Cells[2].Value;
+                if ((bool) dataGridViewRow.Cells[3].Value)
+                {
+                    myUpdate.rbMale.Checked = true;
+                }
+                else
+                {
+                    myUpdate.rbFemale.Checked = true;
+                }
+                myUpdate.txtAddress.Text = dataGridViewRow.Cells[4].Value.ToString();
+                myUpdate.txtPhoneNumber.Text = dataGridViewRow.Cells[5].Value.ToString();
+                myUpdate.txtSalary.Text = dataGridViewRow.Cells[7].Value.ToString();
+                myUpdate.cboPosition.Items.Add(dataGridViewRow.Cells[6].Value.ToString());
+                if (myUpdate.cboPosition.Items[0].ToString() == "Admin")
+                {
+                    myUpdate.cboPosition.Items.Add("User");
+                    myUpdate.cboPosition.SelectedItem = "Admin";
+                }
+                else
+                {
+                    myUpdate.cboPosition.Items.Add("Admin");
+                    myUpdate.cboPosition.SelectedItem = "User";
+                }
+            }
+            var result = myUpdate.ShowDialog();
+            if (result != DialogResult.Cancel) return;
+            dataGridView1.DataSource = null;
+            GetDataFromDb();
         }
 
         private void btnTimebook_Click(object sender, EventArgs e)
@@ -76,5 +109,10 @@ namespace QLDTDD_FPT
         {
 
         }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            btnUpdate.Enabled = true;
+        } 
     }
 }

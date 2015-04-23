@@ -252,24 +252,24 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox txtSalary;
-        private System.Windows.Forms.ComboBox cboPosition;
-        private System.Windows.Forms.RadioButton rbFemale;
-        private System.Windows.Forms.RadioButton rbMale;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtPhoneNumber;
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox txtAddress;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.DateTimePicker dtpBirthday;
-        private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label1;
+        public System.Windows.Forms.TextBox txtSalary;
+        public System.Windows.Forms.ComboBox cboPosition;
+        public System.Windows.Forms.RadioButton rbFemale;
+        public System.Windows.Forms.RadioButton rbMale;
+        public System.Windows.Forms.TextBox txtPhoneNumber;
+        public System.Windows.Forms.TextBox txtAddress;
+        public System.Windows.Forms.DateTimePicker dtpBirthday;
+        public System.Windows.Forms.TextBox txtName;
     }
 }

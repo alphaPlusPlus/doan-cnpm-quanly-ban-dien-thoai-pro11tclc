@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data.SqlClient;
 using System.Globalization;
+using System.Linq;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using QLDTDD_FPT.Database;
@@ -47,7 +48,7 @@ namespace QLDTDD_FPT
             cboPosition.DropDownStyle = ComboBoxStyle.DropDownList;
             cboPosition.Items.Add("Admin");
             cboPosition.Items.Add("User");
-            cboPosition.SelectedIndex = 1;
+            //cboPosition.SelectedIndex = 1;
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)
@@ -66,8 +67,6 @@ namespace QLDTDD_FPT
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            var test = DateTime.Today.Year;
-            var test2 = dtpBirthday.Value.Year;
             var year = DateTime.Today.Year - dtpBirthday.Value.Year;
             if (txtName.Text == "")
             {
@@ -90,6 +89,10 @@ namespace QLDTDD_FPT
             else if (txtAddress.TextLength > 100)
             {
                 MessageBox.Show(@"The Address must less than 100 characters.");
+            }
+            else if (cboPosition.Text == "")
+            {
+                MessageBox.Show(@"Position must be chosen.");
             }
             else if (txtPhoneNumber.TextLength > 20)
             {
@@ -129,7 +132,7 @@ namespace QLDTDD_FPT
                     string position = cboPosition.SelectedItem.ToString();
                     int salary = Int32.Parse(txtSalary.Text.Trim());
 
-                    if (!CheckFailure(name, birthday, address, phoneNumber, position, salary))
+                    if (!CheckFailure(name))
                     {
                         string staffId = Guid.NewGuid().ToString();
                         staffId = staffId.Replace("-", "");
@@ -164,8 +167,7 @@ namespace QLDTDD_FPT
             }
         }
 
-        public bool CheckFailure(string name, DateTime birthday, string address, string phoneNumber, string position,
-            int salary)
+        public bool CheckFailure(string name)
         {
             try
             {
@@ -190,10 +192,7 @@ namespace QLDTDD_FPT
                     MessageBox.Show(@"The name must be entered.");
                     txtName.Text = "";
                     return true;
-                }
-
-                // check salary
-                
+                }               
             }
             catch (Exception ex)
             {
@@ -232,18 +231,29 @@ namespace QLDTDD_FPT
         private void txtPhoneNumber_KeyPress(object sender, KeyPressEventArgs e)
         {
             // handle input field
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
-            {
-                e.Handled = true;
-            }
+            //if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            //{
+            //    e.Handled = true;
+            //}
+            //MessageBox.Show(@"The phone number is incorrect.");
         }
 
         private void txtSalary_KeyPress(object sender, KeyPressEventArgs e)
         {
             // handle input field
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            //if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            //{
+            //    e.Handled = true;
+            //}
+            MessageBox.Show(@"The salary is incorrect.");
+        }
+
+        private void SM_Add_Load(object sender, EventArgs e)
+        {
+            foreach (Button b in this.Controls.OfType<Button>())
             {
-                e.Handled = true;
+                b.MouseEnter += (s, f) => b.Cursor = Cursors.Hand;
+                b.MouseLeave += (s, f) => b.Cursor = Cursors.Arrow;
             }
         }
     }

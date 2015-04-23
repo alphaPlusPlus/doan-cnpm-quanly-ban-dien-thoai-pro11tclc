@@ -260,6 +260,7 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "SM_Add";
             this.Text = "SM_Add";
+            this.Load += new System.EventHandler(this.SM_Add_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
